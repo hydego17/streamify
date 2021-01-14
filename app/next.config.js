@@ -9,7 +9,7 @@ module.exports = {
     config.module.rules.push({
       test: /\.graphqls$/,
       exclude: /node_modules/,
-      user: ['graphql-let/schema/loader'],
+      use: ['graphql-let/schema/loader'],
     });
 
     config.module.rules.push({
