@@ -1,0 +1,18 @@
+{
+  "name": "my-stream-app",
+  "description": "Next.js, GraphQL, Apollo, TypeGraphQL",
+  "author": "Umma Ahimsha",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": "true",
+  "scripts": {
+    "build": "yarn workspace @my-stream-app/app run build",
+    "start": "yarn workspace @my-stream-app/api run start",
+    "dev": "yarn workspace @my-stream-app/api run dev"
+  },
+  "workspaces": [
+    "api",
+    "app"
+  ]
+}
