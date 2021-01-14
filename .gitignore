@@ -11,6 +11,11 @@ node_modules/
 # production
 /app/build
 
+# graphql
+*.graphql.d.ts
+*.graphqls.d.ts
+__generated__/
+
 # misc
 .DS_Store
 .env
