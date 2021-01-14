@@ -10,6 +10,7 @@ import { setContext } from '@apollo/client/link/context';
 let apolloClient: ApolloClient<NormalizedCacheObject> | undefined;
 
 function createApolloClient() {
+  // create an authenticaton link
   const authLink = setContext((_, { headers }) => {
     // get the authentication token from local storage if it exists
     const token = sessionStorage.getItem('token');
@@ -33,6 +34,8 @@ function createApolloClient() {
   });
 }
 
+
+// Initialize apollo client with context and initialState
 export function initializeApollo(initialState: any = null) {
   const _apolloClient = apolloClient ?? createApolloClient();
 
