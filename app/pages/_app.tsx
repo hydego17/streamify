@@ -4,6 +4,7 @@ import { ApolloProvider } from '@apollo/client';
 import CssBaseLine from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
 
+import { AuthProvider } from 'lib/useAuth';
 import { useApollo } from 'lib/apollo';
 import { themeDark, themeLight } from 'lib/theme';
 
@@ -27,7 +28,9 @@ export default function MyApp({ Component, pageProps }) {
     <ApolloProvider client={apolloClient}>
       <ThemeProvider theme={darkState ? themeDark : themeLight}>
         <CssBaseLine />
-        <Component {...pageProps} />
+        <AuthProvider>
+          <Component {...pageProps} />
+        </AuthProvider>
       </ThemeProvider>
     </ApolloProvider>
   );
