@@ -18,6 +18,10 @@ export class AuthResolver {
       throw new Error('Email already in use');
     }
 
+    if (!email || !password) {
+      throw new Error('email and password is required');
+    }
+
     // 2. Create new user with hash password
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new UserModel({ email, password: hashedPassword });
@@ -42,6 +46,10 @@ export class AuthResolver {
     @Arg('input') { email, password }: AuthInput
   ): Promise<UserResponse> {
     const user = await UserModel.findOne({ email });
+
+    if (!email || !password) {
+      throw new Error('email and password is required');
+    }
 
     if (!user) {
       throw new Error();

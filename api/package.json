@@ -1,5 +1,5 @@
 {
-  "name": "@my-stream-app/api",
+  "name": "@streamify/api",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
