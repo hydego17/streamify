@@ -1,19 +1,16 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import {
-  Box,
   Button,
   FormControl,
   FormLabel,
-  Heading,
-  VStack,
+  Stack,
   FormErrorMessage,
   Input,
 } from '@chakra-ui/react';
 
-import { Container, TextField, Typography } from '@material-ui/core';
-
 import { useCreateStreamMutation } from 'lib/graphql/createStream.graphql';
+import PageContainer from 'components/PageContainer';
 
 export default function CreateStream() {
   const [title, setTitle] = useState('');
@@ -49,12 +46,14 @@ export default function CreateStream() {
 
   return (
     <>
-      <Box my={4} maxW="md">
-        <Box pb={4}>
-          <Heading>Create Stream</Heading>
-        </Box>
-
-        <VStack as="form" onSubmit={onSubmit} align="flex-start" spacing={4}>
+      <PageContainer title="Create Stream">
+        <Stack
+          as="form"
+          direction="column"
+          onSubmit={onSubmit}
+          align="flex-start"
+          spacing={4}
+        >
           <FormControl id="title">
             <FormLabel>Title</FormLabel>
             <Input
@@ -82,8 +81,8 @@ export default function CreateStream() {
           </FormControl>
 
           <Button type="submit">Create Stream</Button>
-        </VStack>
-      </Box>
+        </Stack>
+      </PageContainer>
     </>
   );
 }
