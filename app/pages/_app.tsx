@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 import { ApolloProvider } from '@apollo/client';
-
-import CssBaseLine from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ChakraProvider } from '@chakra-ui/react';
 
 import { AuthProvider } from 'lib/useAuth';
 import { useApollo } from 'lib/apollo';
-import { themeDark, themeLight } from 'lib/theme';
 
+import 'styles/globals.css';
 import Header from 'components/Header';
 
 export default function MyApp({ Component, pageProps }) {
@@ -28,13 +26,12 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <ApolloProvider client={apolloClient}>
-      <ThemeProvider theme={darkState ? themeDark : themeLight}>
-        <CssBaseLine />
+      <ChakraProvider>
         <AuthProvider>
-          <Header theme={darkState} toggle={handleThemeChange} />
+          <Header />
           <Component {...pageProps} />
         </AuthProvider>
-      </ThemeProvider>
+      </ChakraProvider>
     </ApolloProvider>
   );
 }
