@@ -5,7 +5,8 @@ import { AuthProvider } from 'lib/useAuth';
 import { useApollo } from 'lib/apollo';
 
 import 'styles/globals.css';
-import Header from 'components/Header';
+
+import Layout from 'components/Layout';
 
 export default function MyApp({ Component, pageProps }) {
   const apolloClient = useApollo(pageProps.initialApolloState);
@@ -14,8 +15,9 @@ export default function MyApp({ Component, pageProps }) {
     <ApolloProvider client={apolloClient}>
       <ChakraProvider>
         <AuthProvider>
-          <Header />
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </AuthProvider>
       </ChakraProvider>
     </ApolloProvider>
