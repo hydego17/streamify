@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import {
-  Typography,
-  Container,
-  TextField,
   Box,
   Button,
-} from '@material-ui/core';
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  Input,
+} from '@chakra-ui/react';
+
 import { useAuth } from 'lib/useAuth';
 
 export default function SignUp() {
@@ -20,39 +22,38 @@ export default function SignUp() {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Box my={4}>
-        <form onSubmit={onSubmit}>
-          {error && <p>{error}</p>}
-          <Typography variant="h4">Sign Up</Typography>
-          <Box pb={2.5} />
-          <TextField
+    <Box my={4} maxW="md">
+      {/* Signing Page Header */}
+
+      {/* Add error message */}
+
+      {error && <Box>{error}</Box>}
+
+      <Box as="form" onSubmit={onSubmit}>
+        <FormControl id="email">
+          <FormLabel>Email</FormLabel>
+          <Input
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="form-control"
-            label="Email"
-            required
+            isRequired
           />
-          <Box pb={2.5} />
-          <TextField
+        </FormControl>
+
+        <FormControl id="password">
+          <FormLabel>Password</FormLabel>
+          <Input
+            type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            className="form-control"
-            label="Password"
-            required
+            isRequired
           />
-          <Box pb={2.5} />
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            type="submit"
-          >
-            Sign Up
-          </Button>
-        </form>
+        </FormControl>
+
+        <Button my={2} type="submit">
+          Sign In
+        </Button>
       </Box>
-    </Container>
+    </Box>
   );
 }
