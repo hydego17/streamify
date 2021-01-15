@@ -1,19 +1,10 @@
 import Link from 'next/link';
-import { makeStyles, Theme } from '@material-ui/core/styles';
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  Link as LinkText,
-  Switch,
-} from '@material-ui/core';
+import { Container, Box, Flex, Button, Heading } from '@chakra-ui/react';
 
 import { useAuth } from 'lib/useAuth';
-import { themeLight } from 'lib/theme';
+import { ThemeSwitcher } from 'components/ThemeSwitcher';
 
-export default function Header({ theme, toggle }) {
-  const classes = useStyles();
+export default function Header() {
   const { user } = useAuth();
 
   const links = [
@@ -26,42 +17,26 @@ export default function Header({ theme, toggle }) {
     .map(({ label, href }) => {
       return (
         <Link href={href} key={href}>
-          <Button color="inherit">{label} </Button>
+          <Button variant="ghost" >{label} </Button>
         </Link>
       );
     });
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            <Link href="/">
-              <LinkText href="" color="inherit">
-                Streamify
-              </LinkText>
-            </Link>
-          </Typography>
-          <Switch checked={theme} onChange={toggle} />
+    <Box as="header" py={6}>
+      <Container maxW="3xl">
+        <Flex justify="space-between" align="center">
+          <Flex as="nav" align="center">
+            <Heading size="md" pr={4}>
+              <Link href="/">Streamify</Link>
+            </Heading>
 
-          {links}
-        </Toolbar>
-      </AppBar>
-    </div>
+            {links}
+          </Flex>
+
+          <ThemeSwitcher />
+        </Flex>
+      </Container>
+    </Box>
   );
 }
-
-const useStyles = makeStyles(() => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: themeLight.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  list: {
-    width: 250,
-  },
-}));
