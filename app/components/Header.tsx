@@ -10,6 +10,7 @@ export default function Header() {
   const links = [
     !user && { label: 'Sign Up', href: '/auth/signup' },
     !user && { label: 'Sign In', href: '/auth/signin' },
+    user && { label: 'Streams', href: '/streams' },
     user && { label: 'Create', href: '/streams/new' },
     user && { label: 'Sign Out', href: '/auth/signout' },
   ]
@@ -17,7 +18,7 @@ export default function Header() {
     .map(({ label, href }) => {
       return (
         <Link href={href} key={href}>
-          <Button variant="ghost" >{label} </Button>
+          <Button variant="ghost">{label} </Button>
         </Link>
       );
     });
