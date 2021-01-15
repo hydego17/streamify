@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Container, Box, Flex, Button, Heading } from '@chakra-ui/react';
+import { Container, Box, Stack, Flex, Button, Heading } from '@chakra-ui/react';
 
 import { useAuth } from 'lib/useAuth';
 import { ThemeSwitcher } from 'components/ThemeSwitcher';
@@ -18,7 +18,9 @@ export default function Header() {
     .map(({ label, href }) => {
       return (
         <Link href={href} key={href}>
-          <Button variant="ghost">{label} </Button>
+          <Button variant="ghost" px={2}>
+            {label}
+          </Button>
         </Link>
       );
     });
@@ -27,13 +29,13 @@ export default function Header() {
     <Box as="header" py={6}>
       <Container maxW="3xl">
         <Flex justify="space-between" align="center">
-          <Flex as="nav" align="center">
+          <Stack as="nav" direction="row" align="center" spacing={2}>
             <Heading size="md" pr={4}>
               <Link href="/">Streamify</Link>
             </Heading>
 
             {links}
-          </Flex>
+          </Stack>
 
           <ThemeSwitcher />
         </Flex>
