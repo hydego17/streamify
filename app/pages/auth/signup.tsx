@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react';
 
 import { useAuth } from 'lib/useAuth';
+import PageContainer from 'components/PageContainer';
 
 export default function SignUp() {
   const [email, setEmail] = useState('');
@@ -22,7 +23,7 @@ export default function SignUp() {
   };
 
   return (
-    <Box my={4} maxW="md">
+    <PageContainer title="Sign Up">
       {/* Signing Page Header */}
 
       {/* Add error message */}
@@ -54,6 +55,6 @@ export default function SignUp() {
           Sign In
         </Button>
       </Box>
-    </Box>
+    </PageContainer>
   );
 }
