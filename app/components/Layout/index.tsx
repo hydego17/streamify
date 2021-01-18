@@ -12,7 +12,9 @@ const Layout = ({ children }: Props) => {
     <>
       <Header />
 
-      <Container maxW="3xl">{children}</Container>
+      <Container maxW="3xl">
+        {children}
+      </Container>
     </>
   );
 };
