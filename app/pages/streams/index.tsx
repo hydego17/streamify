@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useStreamsQuery, Stream } from 'lib/graphql/streams.graphql';
 
 import PageContainer from 'components/PageContainer';
-import Posts from 'components/Posts';
+import Posts from 'components/Streams/Posts';
 
 export default function Streams() {
   const { data, loading, refetch } = useStreamsQuery({ errorPolicy: 'ignore' });
