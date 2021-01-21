@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import {
-  Button,
-  FormControl,
-  FormLabel,
+  Box,
+  Link as ChakraLink,
   Stack,
-  FormErrorMessage,
   Input,
+  Button,
+  FormLabel,
+  FormControl,
+  FormHelperText,
+  Image,
 } from '@chakra-ui/react';
 
 import { useCreateStreamMutation } from 'lib/graphql/createStream.graphql';
@@ -46,13 +49,14 @@ export default function CreateStream() {
 
   return (
     <>
-      <PageContainer title="Create Stream">
+      <PageContainer title="Create Stream" maxW="full">
         <Stack
           as="form"
           direction="column"
           onSubmit={onSubmit}
           align="flex-start"
           spacing={4}
+          maxW="md"
         >
           <FormControl id="title">
             <FormLabel>Title</FormLabel>
@@ -78,6 +82,17 @@ export default function CreateStream() {
               onChange={(e) => setUrl(e.target.value)}
               isRequired
             />
+            <FormHelperText>
+              You can get the sample url from{' '}
+              <ChakraLink
+                color="orange.500"
+                href="https://iframely.com/"
+                target="_blank"
+                rel="noopener"
+              >
+                iframely
+              </ChakraLink>
+            </FormHelperText>
           </FormControl>
 
           <Button type="submit">Create Stream</Button>
