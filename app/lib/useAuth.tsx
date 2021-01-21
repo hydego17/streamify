@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 type AuthProps = {
   user: any;
   error: string;
+  setError: any;
   signIn: (email: any, password: any) => Promise<void>;
   signUp: (email: any, password: any) => Promise<void>;
   signOut: () => void;
@@ -85,6 +86,7 @@ function useProvideAuth() {
   return {
     user,
     error,
+    setError,
     signIn,
     signUp,
     signOut,
