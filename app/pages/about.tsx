@@ -1,20 +1,25 @@
 import Link from 'next/link';
-import { Container, Typography, Box, Button } from '@material-ui/core';
+import { Heading, Box, Button, Text } from '@chakra-ui/react';
 
 export default function About() {
   return (
-    <Container maxWidth="sm">
+    <>
       <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          About Page
-        </Typography>
+        <Heading>About Page</Heading>
 
-        <Link href="/">
-          <Button variant="contained" color="primary">
-            Home
-          </Button>
-        </Link>
+        <Text as="article" py={4}>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi autem
+          dolores dolorum facere nisi dicta doloremque tempore illum obcaecati,
+          sunt, dolor amet sed magnam suscipit quidem praesentium molestias
+          nulla magni?
+        </Text>
+
+        <Box as="nav" mt={4}>
+          <Link href="/">
+            <Button>Home</Button>
+          </Link>
+        </Box>
       </Box>
-    </Container>
+    </>
   );
 }
