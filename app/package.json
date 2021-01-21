@@ -1,5 +1,5 @@
 {
-  "name": "@my-stream-app/app",
+  "name": "@streamify/app",
   "description": "",
   "version": "1.0.0",
   "main": "index.js",
@@ -12,11 +12,16 @@
   },
   "dependencies": {
     "@apollo/client": "^3.3.6",
+    "@chakra-ui/react": "^1.1.4",
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
     "@material-ui/core": "^4.11.2",
+    "framer-motion": "^3.2.1",
     "graphql": "^15.4.0",
     "next": "^10.0.5",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.1.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.20.0",
