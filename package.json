@@ -1,15 +1,15 @@
 {
-  "name": "my-stream-app",
+  "name": "streamify",
   "description": "Next.js, GraphQL, Apollo, TypeGraphQL",
-  "author": "Umma Ahimsha",
+  "author": "Umma Ahimsha (uahimsha@gmail.com)",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "private": "true",
+  "private": true,
   "scripts": {
-    "build": "yarn workspace @my-stream-app/app run build",
-    "start": "yarn workspace @my-stream-app/api run start",
-    "dev": "yarn workspace @my-stream-app/api run dev"
+    "build": "yarn workspace @streamify/app run build",
+    "start": "yarn workspace @streamify/api run start",
+    "dev": "yarn workspace @streamify/api run dev"
   },
   "workspaces": [
     "api",
