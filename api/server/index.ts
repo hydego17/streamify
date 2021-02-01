@@ -57,6 +57,9 @@ async function createServer() {
       console.log(
         `🚀 Server ready at http://localhost:${port}${apolloServer.graphqlPath}`
       );
+      console.log(
+        `🚀 Next.js ready at http://localhost:${port}`
+      );
     });
   } catch (err) {
     console.log(err);
